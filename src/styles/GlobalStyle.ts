@@ -2,16 +2,25 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary: #3b82f6;
-    --accent: #a855f7;
-    --text: #333333;
-    --text-light: #666666;
-    --background: #ffffff;
-    --background-alt: #f9fafb;
-    --border: #e5e7eb;
-    --shadow: rgba(0, 0, 0, 0.1);
+    /* Primary colors (used for main UI elements) */
+    --primary: #C03A28;       /* Vintage red - traditional filmmaking */
+    --primary-dark: #A32A18;  /* Darker red for hover states */
+    
+    /* Secondary colors */
+    --secondary: #2596BE;     /* Tech blue - AI innovation */
+    --secondary-dark: #1A7A9F; /* Darker blue for hover states */
+    
+    /* Bridge colors */
+    --hybrid: #8D99AE;        /* Neutral gray that bridges both worlds */
+    --accent: #F2D6A2;        /* Warm beige from Sarah image */
+    
+    /* Functional colors */
+    --text: #333333;          /* Dark gray for readability */
+    --text-light: #666666;    /* Medium gray for secondary text */
+    --background: #FAF1E4;    /* Light neutral background */
+    --background-alt: #F5EBD8; /* Slightly darker background for cards */
+    --border: #E0D5C0;        /* Subtle border color */
+    --shadow: rgba(0, 0, 0, 0.1); /* Shadow with low opacity */
   }
 
   * {
@@ -26,6 +35,20 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text);
     background-color: var(--background);
     line-height: 1.6;
+    position: relative;
+  }
+  
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/textures/film-grain.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
   }
 
   h1, h2, h3, h4, h5, h6 {

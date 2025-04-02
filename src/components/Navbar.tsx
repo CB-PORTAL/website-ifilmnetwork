@@ -8,7 +8,7 @@ const NavbarContainer = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  background-color: white;
+  background-color: var(--background);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 `;
@@ -28,10 +28,37 @@ const Logo = styled(Link)`
   color: var(--text);
   display: flex;
   align-items: center;
+  text-decoration: none;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FilmstripPart = styled.img`
+  height: 40px;
+  margin-right: 10px;
+`;
+
+const LogoText = styled.div`
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.2;
   
-  span {
+  .indie {
     color: var(--primary);
   }
+  
+  .network {
+    color: var(--secondary);
+  }
+`;
+
+const Tagline = styled.div`
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
 `;
 
 const MenuButton = styled.button`
@@ -63,7 +90,7 @@ const NavMenu = styled.ul<NavMenuProps>`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
+    background-color: var(--background);
     padding: 2rem;
     transform: ${({ isOpen }) => isOpen ? 'translateY(0)' : 'translateY(-100%)'};
     opacity: ${({ isOpen }) => isOpen ? '1' : '0'};
@@ -159,7 +186,15 @@ const Navbar: React.FC = () => {
     <NavbarContainer style={{ boxShadow: scrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none' }}>
       <Nav>
         <Logo to="/">
-          <span>IFN</span> Indie Film Network
+          <LogoContainer>
+            <FilmstripPart src="/images/branding/ifn-filmstrip-logo.png" alt="IFN" />
+            <div>
+              <LogoText>
+                <span className="indie">Indie Film</span> <span className="network">Network</span>
+              </LogoText>
+              <Tagline>Human/AI/Hybrid Filmmaking</Tagline>
+            </div>
+          </LogoContainer>
         </Logo>
         
         <MenuButton onClick={toggleMenu}>
