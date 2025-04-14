@@ -211,6 +211,9 @@ const Navbar: React.FC = () => {
           <NavItem active={location.pathname === '/resources'}>
             <Link to="/resources">Resources</Link>
           </NavItem>
+          <NavItem active={location.pathname === '/events'}>
+            <Link to="/events">Events</Link>
+          </NavItem>
           <NavItem active={location.pathname === '/community'}>
             <Link to="/community">Community</Link>
           </NavItem>
@@ -218,6 +221,7 @@ const Navbar: React.FC = () => {
             <Link to="/contact">Contact</Link>
           </NavItem>
           <CTAButton to="/community">Join IFN</CTAButton>
+
         </NavMenu>
       </Nav>
     </NavbarContainer>

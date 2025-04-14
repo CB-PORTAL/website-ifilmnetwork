@@ -500,6 +500,87 @@ const CommunityPage: React.FC = () => {
             </motion.div>
           </TestimonialsGrid>
         </TestimonialsSection>
+
+        <Section bgColor="var(--background-alt)">
+          <Container>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Connect Online Too</h2>
+            </motion.div>
+            
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+              gap: '2rem',
+              maxWidth: '900px',
+              margin: '0 auto'
+            }}>
+              <Card>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <div style={{ 
+                    width: '80px', 
+                    height: '80px', 
+                    borderRadius: '50%', 
+                    background: 'var(--primary)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    marginBottom: '1.5rem',
+                    fontSize: '2rem',
+                    color: 'white'
+                  }}>
+                    <i className="fab fa-facebook-f"></i>
+                  </div>
+                  <h3 style={{ marginBottom: '1rem' }}>Indie Film Network (Official)</h3>
+                  <p style={{ marginBottom: '1.5rem' }}>
+                    Our main community group open to all creative people - from first-timers to veterans.
+                    Ask questions, share what you've learned, and find collaborators.
+                  </p>
+                  <Button primary as="a" href="https://www.facebook.com/groups/indiefilmnetwork" target="_blank">
+                    Join Group
+                  </Button>
+                </div>
+              </Card>
+              
+              <Card>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <div style={{ 
+                    width: '80px', 
+                    height: '80px', 
+                    borderRadius: '50%', 
+                    background: 'var(--secondary)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    marginBottom: '1.5rem',
+                    fontSize: '2rem',
+                    color: 'white'
+                  }}>
+                    <i className="fab fa-facebook-f"></i>
+                  </div>
+                  <h3 style={{ marginBottom: '1rem' }}>IFN App (Official)</h3>
+                  <p style={{ marginBottom: '1.5rem' }}>
+                    Help us build better tools for our community. Share your ideas, test early features,
+                    and connect with others who are passionate about creating together.
+                  </p>
+                  <Button 
+                    style={{ background: 'var(--secondary)', borderColor: 'var(--secondary)' }} 
+                    primary 
+                    as="a" 
+                    href="https://www.facebook.com/groups/ifnapp" 
+                    target="_blank"
+                  >
+                    Join App Group
+                  </Button>
+                </div>
+              </Card>
+            </div>
+          </Container>
+        </Section>
         
         <Section bgColor="var(--primary)" style={{ color: 'white', margin: '-5rem -2rem 0', padding: '5rem 2rem' }}>
           <Container>

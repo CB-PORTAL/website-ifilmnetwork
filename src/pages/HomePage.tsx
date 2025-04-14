@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaFilm, FaUsers, FaRobot, FaLightbulb } from 'react-icons/fa';
 import { Section, Container, TwoColumns, Button, Card, Grid } from '../components/common';
+import AppPromo from '../components/AppPromo';
+import EventsFeed from '../components/EventsFeed';
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -268,7 +270,7 @@ const HomePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Revolutionizing Independent Filmmaking
+            Your Creative Journey Starts Here
           </HeroTitle>
           
           <HeroSubtitle
@@ -276,7 +278,11 @@ const HomePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Connecting filmmakers through our innovative Human/AI/Hybrid framework. Join our community where creativity meets technology.
+            A place for everyone who loves storytelling through film. 
+            
+            Whether you're just starting out, exploring AI tools,
+            or somewhere inbetween, we're building connections that
+            helps each unique vision find its way.
           </HeroSubtitle>
           
           <ButtonGroup
@@ -286,12 +292,12 @@ const HomePage: React.FC = () => {
           >
             <StyledButton as={motion.button} variants={ctaVariants} whileHover="hover" primary>
               <Link to="/community" style={{ color: 'white', textDecoration: 'none' }}>
-                Join Our Community
+              Connect With IFN
               </Link>
             </StyledButton>
             <StyledButton as={motion.button} variants={ctaVariants} whileHover="hover">
               <Link to="/about" style={{ textDecoration: 'none' }}>
-                Learn More
+                Our Approach
               </Link>
             </StyledButton>
           </ButtonGroup>
@@ -510,6 +516,36 @@ const HomePage: React.FC = () => {
         </Container>
       </Section>
      
+      <Section bgColor="var(--background)">
+  <Container>
+    <AppPromo />
+  </Container>
+</Section>
+
+<Section>
+  <Container>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Events Near You</h2>
+      <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem' }}>
+        Discover opportunities to connect, learn, and share with other creators in your area.
+      </p>
+    </motion.div>
+    
+    <EventsFeed limit={3} showFilters={false} />
+    
+    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+      <Button as={Link} to="/events">
+        See All Events
+      </Button>
+    </div>
+  </Container>
+</Section>
+
       <Section bgColor="var(--primary)" style={{ color: 'white' }}>
         <Container>
           <motion.div
