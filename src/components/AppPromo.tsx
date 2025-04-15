@@ -1,11 +1,10 @@
-// Create a new file: src/components/AppPromo.tsx
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaMobile, FaQrcode } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Button } from './common';
+import { QRCodeSVG } from 'qrcode.react'; // Import QR code component
 
 // Styled components for the App Promo section
 const PromoContainer = styled.div`
@@ -19,13 +18,13 @@ const PromoContainer = styled.div`
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  
+ 
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
     padding: 2rem;
   }
-  
+ 
   &::after {
     content: '';
     position: absolute;
@@ -45,7 +44,7 @@ const PromoContent = styled.div`
   flex: 1;
   position: relative;
   z-index: 2;
-  
+ 
   @media (max-width: 768px) {
     margin-bottom: 2rem;
   }
@@ -75,7 +74,12 @@ const PromoQR = styled.div`
   margin-left: 2rem;
   position: relative;
   z-index: 2;
+  transition: transform 0.3s ease;
   
+  &:hover {
+    transform: scale(1.05);
+  }
+ 
   @media (max-width: 768px) {
     margin-left: 0;
   }
@@ -95,7 +99,7 @@ const QRPlaceholder = styled.div`
 const EmailForm = styled.form`
   display: flex;
   max-width: 500px;
-  
+ 
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -108,11 +112,11 @@ const EmailInput = styled.input`
   border-radius: 0.5rem 0 0 0.5rem;
   width: 100%;
   font-size: 1rem;
-  
+ 
   &:focus {
     outline: none;
   }
-  
+ 
   @media (max-width: 768px) {
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
@@ -124,12 +128,12 @@ const SubmitButton = styled(Button)`
   margin: 0;
   padding: 0.75rem 1.5rem;
   background-color: var(--hybrid);
-  
+ 
   &:hover {
     background-color: var(--accent);
     color: var(--text);
   }
-  
+ 
   @media (max-width: 768px) {
     border-radius: 0.5rem;
     width: 100%;
@@ -149,39 +153,42 @@ const AppPromo: React.FC = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   
+  // Get the current domain for the QR code
+  const appUrl = `${window.location.origin}/app`;
+ 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real implementation, you would send this to your server
     console.log('Email submitted for app notification:', email);
     setSubmitted(true);
     setEmail('');
-    
+   
     // Reset the thank you message after 5 seconds
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
   };
-  
+ 
   return (
     <PromoContainer>
       <PromoContent>
-        <PromoTitle>Community Resources in Your Pocket</PromoTitle>
-        <PromoDescription>
-          We're building tools that connect you with other creators and opportunities nearby. 
-          Whether you're looking for collaborators or just want to find local events, 
+        <PromoTitle>Try IFN: Create, Collaborate & Innovate.</PromoTitle>
+        <PromoDescription> 
+          We're building tools that connect you with other creators and opportunities nearby.
+          Whether you're looking for collaborators or just want to find local events,
           we want to make these connections easier.
         </PromoDescription>
-        
+       
         {!submitted ? (
           <>
             <EmailForm onSubmit={handleSubmit}>
-              <EmailInput 
-                type="email" 
-                placeholder="Your email to join our early access community" 
+              <EmailInput
+                type="email"
+                placeholder="Your email to join our early access community"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
+              /> 
               <SubmitButton primary type="submit">Be Part of It</SubmitButton>
             </EmailForm>
             <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: '0.8' }}>
@@ -198,12 +205,17 @@ const AppPromo: React.FC = () => {
           </ThankYouMessage>
         )}
       </PromoContent>
-      
+     
       <Link to="/app">
         <PromoQR>
-          <QRPlaceholder>
-            <FaQrcode />
-          </QRPlaceholder>
+          <QRCodeSVG 
+            value={appUrl}
+            size={118}
+            bgColor={"#ffffff"}
+            fgColor={"#333333"}
+            level={"L"}
+            includeMargin={false}
+          />
         </PromoQR>
       </Link>
     </PromoContainer>

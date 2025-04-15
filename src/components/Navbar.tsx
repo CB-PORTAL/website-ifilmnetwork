@@ -220,7 +220,7 @@ const Navbar: React.FC = () => {
           <NavItem active={location.pathname === '/contact'}>
             <Link to="/contact">Contact</Link>
           </NavItem>
-          <CTAButton to="/community">Join IFN</CTAButton>
+          <CTAButton to="/app">Join IFN</CTAButton>
 
         </NavMenu>
       </Nav>

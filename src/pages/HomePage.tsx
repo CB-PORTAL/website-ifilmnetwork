@@ -18,7 +18,7 @@ const HeroSection = styled.section`
   color: white;
   margin-top: -64px;
   overflow: hidden;
-  
+ 
   &::before {
     content: '';
     position: absolute;
@@ -31,7 +31,7 @@ const HeroSection = styled.section`
     pointer-events: none;
     z-index: 1;
   }
-  
+ 
   &::after {
     content: '';
     position: absolute;
@@ -44,7 +44,7 @@ const HeroSection = styled.section`
     pointer-events: none;
     z-index: 1;
   }
-  
+ 
   @media (max-width: 768px) {
     padding-top: 64px;
   }
@@ -78,22 +78,22 @@ const FrameworkBadge = styled.div`
   border-radius: 30px;
   padding: 0.5rem 1rem;
   margin-bottom: 1.5rem;
-  
+ 
   .human {
     color: var(--accent);
     font-weight: 600;
   }
-  
+ 
   .ai {
     color: var(--secondary);
     font-weight: 600;
   }
-  
+ 
   .hybrid {
     color: var(--hybrid);
     font-weight: 600;
   }
-  
+ 
   .separator {
     color: rgba(255, 255, 255, 0.7);
     margin: 0 0.25rem;
@@ -142,19 +142,19 @@ const IconWrapper = styled.div`
   margin: 0 auto 1.5rem;
   border-radius: 50%;
   font-size: 2.5rem;
-  
+ 
   &.human {
     background-color: var(--accent);
     color: var(--primary);
     box-shadow: 0 5px 15px rgba(192, 58, 40, 0.2);
   }
-  
+ 
   &.ai {
     background-color: rgba(37, 150, 190, 0.1);
     color: var(--secondary);
     box-shadow: 0 5px 15px rgba(37, 150, 190, 0.2);
   }
-  
+ 
   &.hybrid {
     background: linear-gradient(135deg, var(--accent), rgba(37, 150, 190, 0.1));
     color: var(--hybrid);
@@ -211,22 +211,22 @@ const StatementTitle = styled.h2`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
+ 
   .traditional {
     color: var(--primary);
     margin-right: 0.5rem;
   }
-  
+ 
   .plus {
     margin: 0 0.5rem;
     color: var(--hybrid);
   }
-  
+ 
   .future {
     color: var(--secondary);
     margin-left: 0.5rem;
   }
-  
+ 
   @media (max-width: 768px) {
     font-size: 1.8rem;
   }
@@ -264,40 +264,39 @@ const HomePage: React.FC = () => {
             <span className="separator">/</span>
             <span className="hybrid">Hybrid</span>
           </FrameworkBadge>
-          
+         
           <HeroTitle
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Your Creative Journey Starts Here
-          </HeroTitle>
-          
+            Your Creative Journey Continues Here
+          </HeroTitle> 
+         
           <HeroSubtitle
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            A place for everyone who loves storytelling through film. 
-            
-            Whether you're just starting out, exploring AI tools,
-            or somewhere inbetween, we're building connections that
-            helps each unique vision find its way.
+            Your creative hub for filmmakers, writers, artists, musicians, and visionaries of all kinds. 
+            We're building a collaborative platform where resources find you, opportunities emerge, and 
+            creative professionals help each other navigate the evolving landscape of technology and AI 
+            with integrity and purpose.
           </HeroSubtitle>
-          
+         
           <ButtonGroup
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <StyledButton as={motion.button} variants={ctaVariants} whileHover="hover" primary>
-              <Link to="/community" style={{ color: 'white', textDecoration: 'none' }}>
+              <Link to="/app" style={{ color: 'white', textDecoration: 'none' }}>
               Connect With IFN
               </Link>
             </StyledButton>
             <StyledButton as={motion.button} variants={ctaVariants} whileHover="hover">
               <Link to="/about" style={{ textDecoration: 'none' }}>
-                Our Approach
+                Learn More
               </Link>
             </StyledButton>
           </ButtonGroup>
@@ -347,7 +346,7 @@ const HomePage: React.FC = () => {
                 </IconWrapper>
                 <FeatureTitle>AI Technology</FeatureTitle>
                 <FeatureDescription>
-                  We leverage cutting-edge AI tools to enhance creativity, streamline production, and open new possibilities for indie filmmakers.
+                  We leverage cutting-edge AI tools to enhance creativity, streamline production, and open new possibilities for indie filmmakers and creators.
                 </FeatureDescription>
               </Card>
             </motion.div>
@@ -360,11 +359,14 @@ const HomePage: React.FC = () => {
             >
               <Card>
                 <IconWrapper className="human">
-                  <FaUsers />
+                  <FaUsers /> 
                 </IconWrapper>
                 <FeatureTitle>Community Collaboration</FeatureTitle>
                 <FeatureDescription>
-                  We connect passionate filmmakers across disciplines, fostering collaboration and knowledge sharing within our growing network.
+                  We connect passionate creators across disciplines,
+                  like filmmaking, writing, music, art and more,
+                  fostering collaboration and knowledge sharing
+                  within our growing network. 
                 </FeatureDescription>
               </Card>
             </motion.div>
@@ -388,7 +390,7 @@ const HomePage: React.FC = () => {
           </Grid>
         </Container>
       </Section>
-      
+     
       <Section bgColor="var(--background-alt)">
         <Container>
           <BrandStatement>
@@ -397,16 +399,16 @@ const HomePage: React.FC = () => {
               <span className="plus">+</span>
               <span className="future">Future Innovation</span>
             </StatementTitle>
-            
+           
             <StatementText>
-              At IFN, we believe in preserving the human artistry that makes cinema special, 
-              while embracing the technological advancements that expand what's possible. 
-              Our Human/AI/Hybrid framework ensures filmmakers can engage with AI on their own terms - 
+              At IFN, we believe in preserving the human artistry that makes cinema special,
+              while embracing the technological advancements that expand what's possible.
+              Our Human/AI/Hybrid framework ensures filmmakers can engage with AI on their own terms -
               using it as a tool to enhance creativity, never replace it.
             </StatementText>
-            
+           
             <StatementCTA>
-              <Button primary>Our Approach</Button>
+              <Button primary as={Link} to="/about">Our Approach</Button>
             </StatementCTA>
           </BrandStatement>
         </Container>
@@ -423,14 +425,13 @@ const HomePage: React.FC = () => {
             >
               <h2>About Indie Film Network</h2>
               <p>
-                Founded at the intersection of traditional filmmaking and cutting-edge AI technology,
-                the Indie Film Network is revolutionizing how independent films are created, financed,
-                and distributed.
+              Founded at the intersection of traditional filmmaking and cutting-edge AI technology,
+              Indie Film Network is revolutionizing how independent films are created, financed, and distributed.
               </p>
               <p>
-                In 2025, we're proudly reviving IFN with a bold vision: to empower filmmakers with our
-                innovative Human/AI/Hybrid framework that preserves artistic integrity while unlocking
-                new creative possibilities.
+              In 2025, we're reviving IFN with a bold vision:
+              empowering filmmakers through our innovative Human/AI/Hybrid framework
+              that preserves artistic integrity while unlocking unprecedented creative possibilities.
               </p>
               <Button primary style={{ marginTop: '1rem' }}>
                 <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>
@@ -445,7 +446,7 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <img src="/images/about-image.jpg" alt="Filmmaking team" style={{ width: '100%', borderRadius: '0.5rem' }} />
+              <img src="/images/branding/human-ai-filmmaker.png" alt="Human-AI hybrid filmmaker representing IFN's approach" />
             </motion.div>
           </TwoColumns>
         </Container>
@@ -460,7 +461,7 @@ const HomePage: React.FC = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              What Filmmakers Are Saying
+              What Creators Are Saying 
             </h2>
           </motion.div>
          
@@ -517,34 +518,34 @@ const HomePage: React.FC = () => {
       </Section>
      
       <Section bgColor="var(--background)">
-  <Container>
-    <AppPromo />
-  </Container>
-</Section>
+        <Container>
+          <AppPromo />
+        </Container>
+      </Section>
 
-<Section>
-  <Container>
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Events Near You</h2>
-      <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem' }}>
-        Discover opportunities to connect, learn, and share with other creators in your area.
-      </p>
-    </motion.div>
-    
-    <EventsFeed limit={3} showFilters={false} />
-    
-    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-      <Button as={Link} to="/events">
-        See All Events
-      </Button>
-    </div>
-  </Container>
-</Section>
+      <Section>
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Events Near You</h2>
+            <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem' }}>
+              Discover opportunities to connect, learn, and share with other creators in your area.
+            </p>
+          </motion.div>
+         
+          <EventsFeed limit={3} showFilters={false} />
+         
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Button as={Link} to="/events">
+              See All Events
+            </Button>
+          </div>
+        </Container>
+      </Section>
 
       <Section bgColor="var(--primary)" style={{ color: 'white' }}>
         <Container>
